@@ -4,7 +4,7 @@
   "description": "bms-utility-functions",
   "main": "index.js",
   "scripts": {
-    "typescript:build": "tsc --target es6",
+    "typescript:build": "tsc || echo done.",
     "test": "mocha -r ts-node/register test/**/*",
     "BDD": "onchange ./**/*.ts test/**/*.ts -- npm test",
     "coverage": "nyc mocha -r ts-node/register test/**/*",

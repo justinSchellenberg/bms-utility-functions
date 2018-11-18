@@ -4,6 +4,8 @@ notifications:
   on_failure: never
 node_js:
   - "stable"
+before_script:
+  - npm run typescript:build
 script:
   - npm run coverage
 after_success:

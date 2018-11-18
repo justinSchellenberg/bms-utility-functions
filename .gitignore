@@ -14,3 +14,6 @@ src/node_modules
 src/dist/*
 .nyc_output/
 coverage/
+
+test/*.js
+src/*.js
