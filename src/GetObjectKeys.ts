@@ -1,3 +1,3 @@
-export default function GetObjectKeys(obj: object): Array<string> {
+export default function GetObjectKeys(obj: object): string[] {
   return Object.keys(obj);
 }

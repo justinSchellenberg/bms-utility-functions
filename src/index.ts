@@ -1,10 +1,9 @@
-import IsEmptyObject from './IsEmptyObject';
-import IsObjectContainSpecifiedKeys from './IsObjectContainSpecifiedKeys';
-import GetObjectKeys from './GetObjectKeys';
+import GetObjectKeys from "./GetObjectKeys";
+import IsEmptyObject from "./IsEmptyObject";
+import IsObjectContainSpecifiedKeys from "./IsObjectContainSpecifiedKeys";
 
 export {
-  IsEmptyObject,
   GetObjectKeys,
-  IsObjectContainSpecifiedKeys
-
-}
+  IsEmptyObject,
+  IsObjectContainSpecifiedKeys,
+};
