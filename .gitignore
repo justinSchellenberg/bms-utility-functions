@@ -1,6 +1,7 @@
 *___jb_old___*
 *___jb_tmp___*
 *.lock
+*-lock.json
 .DS_Store
 theme.lock
 config.yml
