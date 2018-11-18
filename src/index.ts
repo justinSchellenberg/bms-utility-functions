@@ -1,9 +1,5 @@
-import GetObjectKeys from "./GetObjectKeys";
-import IsEmptyObject from "./IsEmptyObject";
-import IsObjectContainSpecifiedKeys from "./IsObjectContainSpecifiedKeys";
+import GetObjectKeys from './GetObjectKeys';
+import IsEmptyObject from './IsEmptyObject';
+import IsObjectContainSpecifiedKeys from './IsObjectContainSpecifiedKeys';
 
-export {
-  GetObjectKeys,
-  IsEmptyObject,
-  IsObjectContainSpecifiedKeys,
-};
+export { GetObjectKeys, IsEmptyObject, IsObjectContainSpecifiedKeys };
