@@ -1,6 +1,6 @@
 {
   "name": "bms-utility-helper-functions",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "bms-utility-functions",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,11 +13,11 @@
     "publishModule": "npm run build && npm publish",
     "lint": "tslint -p tsconfig.json",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "prepare" : "npm run build",
+    "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
-    "version" : "npm run format && git add -A src",
-    "postversion" : "git push && git push --tags"
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "nyc": {
     "extension": [
