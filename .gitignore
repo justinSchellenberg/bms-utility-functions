@@ -17,3 +17,5 @@ bold-common.liquid
 config.*.yml
 *.cache*
 src/dist/*
+.nyc_output/
+coverage/
