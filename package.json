@@ -2,13 +2,14 @@
   "name": "bms-utility-functions",
   "version": "0.0.1",
   "description": "bms-utility-functions",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "typescript:build": "tsc || echo done.",
     "test": "mocha -r ts-node/register test/**/*",
     "BDD": "onchange ./**/*.ts test/**/*.ts -- npm test",
     "coverage": "nyc mocha -r ts-node/register test/**/*",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "publishModule": "npm run typescript:build && npm publish"
   },
   "nyc": {
     "extension": [
