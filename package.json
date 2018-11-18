@@ -1,5 +1,5 @@
 {
-  "name": "bms-utility-functions",
+  "name": "bms-utility-helper-functions",
   "version": "0.0.1",
   "description": "bms-utility-functions",
   "main": "dist/index.js",
