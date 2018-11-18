@@ -15,8 +15,13 @@
       ".ts",
       ".tsx"
     ],
+    "include": [
+      "src/"
+    ],
     "exclude": [
-      "**/*.d.ts"
+      "**/*.d.ts",
+      "dist/",
+      "node_modules"
     ],
     "reporter": [
       "lcov",
