@@ -1,6 +1,6 @@
 import GetObjectKeys from './GetObjectKeys';
 import IsEmptyObject from './IsEmptyObject';
-import IsObjectContainSpecifiedKeys from './IsObjectContainSpecifiedKeys';
 import IsFunction from './IsFunction';
+import IsObjectContainSpecifiedKeys from './IsObjectContainSpecifiedKeys';
 
 export { GetObjectKeys, IsEmptyObject, IsObjectContainSpecifiedKeys, IsFunction };
