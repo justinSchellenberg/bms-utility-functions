@@ -3,14 +3,16 @@ import { IsFunction } from '../src/index';
 
 const expect = chai.expect;
 
+
+
 describe('Function - IsFunction', () => {
+  const func = () => {
+    return 'I am a function';
+  };
+  const another = () => {
+    return;
+  };
   it('should return true if variable is of type function', () => {
-    const func = () => {
-      return 'I am a function';
-    };
-    const another = () => {
-      return;
-    }
     expect(IsFunction(func)).to.be.true;
     expect(IsFunction(another)).to.be.true;
   });
@@ -20,10 +22,13 @@ describe('Function - IsFunction', () => {
     const number = 44;
     const bool = false;
     const date = new Date();
+    const funcArray = [func, another];
     expect(IsFunction(obj)).to.be.false;
     expect(IsFunction(str)).to.be.false;
     expect(IsFunction(number)).to.be.false;
     expect(IsFunction(bool)).to.be.false;
     expect(IsFunction(date)).to.be.false;
+    expect(IsFunction(funcArray)).to.be.false;
+
   });
 });
