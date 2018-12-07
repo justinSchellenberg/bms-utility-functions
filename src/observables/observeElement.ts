@@ -27,7 +27,5 @@ export const ObserveElement = (watchElement: any, observeOnce: boolean = true, c
     subtree: true, // Have elements more than one level deep changed?
   };
 
-
   observer.observe(watchElement.parentNode, config);
-
 };
