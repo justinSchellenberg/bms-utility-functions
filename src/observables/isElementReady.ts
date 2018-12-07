@@ -16,7 +16,7 @@ const listeners: IListeners[] = [];
  * @param {string} selector - document.querySelector element selector of an element to watch for
  * @return {Promise<any>} - Returns a promise if and when the element becomes seen and available in the DOM.
  */
-export const isElementReadyPromise = (selectorString: string) => {
+export const IsElementReadyPromise = (selectorString: string) => {
   return new Promise(resolve => {
     // Store the selector and callback to be monitored
     listeners.push({
@@ -41,7 +41,7 @@ export const isElementReadyPromise = (selectorString: string) => {
  * @param {string} selector - document.querySelector element selector of an element to watch for
  * @param callback - Anonymous callback Function to execute if the element becomes seen and available in DOM.
  */
-export const isElementReadyCallback = (selectorString: string, callback: any) => {
+export const IsElementReadyCallback = (selectorString: string, callback: any) => {
   // Store the selector and callback to be monitored
   listeners.push({
     fn: callback,

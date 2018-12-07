@@ -1,15 +1,15 @@
 import GetObjectKeys from './GetObjectKeys';
 import IsEmptyObject from './IsEmptyObject';
-import { isElementReadyCallback, isElementReadyPromise } from './observables/isElementReady';
+import { IsElementReadyCallback, IsElementReadyPromise } from './observables/isElementReady';
 import IsFunction from './IsFunction';
 import IsObject from './IsObject';
 import IsObjectContainSpecifiedKeys from './IsObjectContainSpecifiedKeys';
-import {observeElement} from './observables/observeElement';
+import {ObserveElement} from './observables/observeElement';
 
 export { GetObjectKeys,
   IsEmptyObject,
-  isElementReadyCallback, isElementReadyPromise,
+  IsElementReadyCallback, IsElementReadyPromise,
   IsObject,
   IsObjectContainSpecifiedKeys,
   IsFunction,
-  observeElement};
+  ObserveElement};

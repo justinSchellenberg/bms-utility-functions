@@ -8,7 +8,7 @@ export interface IObserverConfig {
   attributeFilter: boolean;
 }
 
-export const observeElement = (watchElement:any , observeOnce: boolean = true, callback: any) => {
+export const ObserveElement = (watchElement:any , observeOnce: boolean = true, callback: any) => {
   const observer = new MutationObserver((e) =>  {
     if (e[0].removedNodes){
       callback();
