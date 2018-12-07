@@ -17,7 +17,7 @@ export const ObserveElement = (watchElement: any, observeOnce: boolean = true, c
       }
     }
   });
-  const config: IObserverConfig = {
+  const config: any = {
     attributeFilter: false, // What specific attributes should be watched?
     attributeOldValue: true, // Do you want the original value of the attribute?
     attributes: true, // Has the element had any changes to attributes?
@@ -27,7 +27,7 @@ export const ObserveElement = (watchElement: any, observeOnce: boolean = true, c
     subtree: true, // Have elements more than one level deep changed?
   };
 
-  /* tslint:disable */
+
   observer.observe(watchElement.parentNode, config);
-  /* tslint:enable */
+
 };

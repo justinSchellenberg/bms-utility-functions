@@ -3,12 +3,9 @@ interface IListeners {
   selector: string;
 }
 
-let observer: any,
-  /* tslint:disable */
-  MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
-const doc = window.document;
-/* tslint:enable */
+let observer: any;
 
+const doc = window.document;
 const listeners: IListeners[] = [];
 
 /**
