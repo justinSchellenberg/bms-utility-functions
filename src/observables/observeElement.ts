@@ -10,7 +10,7 @@ export interface IObserverConfig {
 
 export const ObserveElement = (watchElement: any, observeOnce: boolean = true, callback: any) => {
   let observer: any;
-      observer = new MutationObserver(observed);
+  observer = new MutationObserver(observed);
   const config: any = {
     attributeFilter: false, // What specific attributes should be watched?
     attributeOldValue: true, // Do you want the original value of the attribute?
@@ -22,7 +22,7 @@ export const ObserveElement = (watchElement: any, observeOnce: boolean = true, c
   };
   observer.observe(watchElement.parentNode, config);
 
-  function observed(e: any){
+  function observed(e: any) {
     if (e[0].removedNodes) {
       callback();
       if (observeOnce) {
