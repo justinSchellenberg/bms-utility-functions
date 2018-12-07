@@ -9,14 +9,8 @@ export interface IObserverConfig {
 }
 
 export const ObserveElement = (watchElement: any, observeOnce: boolean = true, callback: any) => {
-  const observer = new MutationObserver(e => {
-    if (e[0].removedNodes) {
-      callback();
-      if (observeOnce) {
-        observer.disconnect(); // Disconnect old observer, so the obs don't stack.
-      }
-    }
-  });
+  let observer: any;
+      observer = new MutationObserver(observed);
   const config: any = {
     attributeFilter: false, // What specific attributes should be watched?
     attributeOldValue: true, // Do you want the original value of the attribute?
@@ -26,6 +20,14 @@ export const ObserveElement = (watchElement: any, observeOnce: boolean = true, c
     childList: true, // Have elements been added/removed directly in this element?
     subtree: true, // Have elements more than one level deep changed?
   };
-
   observer.observe(watchElement.parentNode, config);
+
+  function observed(e: any){
+    if (e[0].removedNodes) {
+      callback();
+      if (observeOnce) {
+        observer.disconnect(); // Disconnect old observer, so the obs don't stack.
+      }
+    }
+  }
 };
