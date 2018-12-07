@@ -8,17 +8,16 @@ export interface IObserverConfig {
   attributeFilter: boolean;
 }
 
-export const ObserveElement = (watchElement:any , observeOnce: boolean = true, callback: any) => {
-  const observer = new MutationObserver((e) =>  {
-    if (e[0].removedNodes){
+export const ObserveElement = (watchElement: any, observeOnce: boolean = true, callback: any) => {
+  const observer = new MutationObserver(e => {
+    if (e[0].removedNodes) {
       callback();
-      if(observeOnce){
+      if (observeOnce) {
         observer.disconnect(); // Disconnect old observer, so the obs don't stack.
       }
     }
   });
-  const config: IObserverConfig =
-  {
+  const config: IObserverConfig = {
     attributeFilter: false, // What specific attributes should be watched?
     attributeOldValue: true, // Do you want the original value of the attribute?
     attributes: true, // Has the element had any changes to attributes?
@@ -31,4 +30,4 @@ export const ObserveElement = (watchElement:any , observeOnce: boolean = true, c
   /* tslint:disable */
   observer.observe(watchElement.parentNode, config);
   /* tslint:enable */
-}
+};

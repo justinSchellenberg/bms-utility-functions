@@ -4,12 +4,15 @@ import { IsElementReadyCallback, IsElementReadyPromise } from './observables/isE
 import IsFunction from './IsFunction';
 import IsObject from './IsObject';
 import IsObjectContainSpecifiedKeys from './IsObjectContainSpecifiedKeys';
-import {ObserveElement} from './observables/observeElement';
+import { ObserveElement } from './observables/observeElement';
 
-export { GetObjectKeys,
+export {
+  GetObjectKeys,
   IsEmptyObject,
-  IsElementReadyCallback, IsElementReadyPromise,
+  IsElementReadyCallback,
+  IsElementReadyPromise,
   IsObject,
   IsObjectContainSpecifiedKeys,
   IsFunction,
-  ObserveElement};
+  ObserveElement,
+};
