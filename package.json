@@ -6,9 +6,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "mocha -r ts-node/register -r jsdom-global/register test/**/*",
+    "test": "TS_NODE_PROJECT=\"tsconfig.testing.json\" mocha -r ts-node/register -r jsdom-global/register test/**/*.test.ts",
     "BDD": "onchange ./**/*.ts test/**/*.ts -- npm test",
-    "coverage": "nyc mocha -r ts-node/register -r jsdom-global/register test/**/*",
+    "coverage": "TS_NODE_PROJECT=\"tsconfig.testing.json\" nyc mocha -r ts-node/register -r jsdom-global/register test/**/*.test.ts",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "publishModule": "npm run build && npm publish",
     "lint": "tslint -p tsconfig.json",
@@ -30,8 +30,8 @@
     "exclude": [
       "**/*.d.ts",
       "dist/",
-      "node_modules",
-      "src/observables/"
+      "node_modules"
+
     ],
     "reporter": [
       "lcov",
@@ -53,6 +53,7 @@
     "@babel/plugin-transform-regenerator": "^7.0.0",
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
     "@types/chai": "^4.1.6",
     "@types/es6-promise": "^3.3.0",
     "@types/es6-shim": "^0.31.37",
