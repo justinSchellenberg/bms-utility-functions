@@ -2,7 +2,7 @@
 
 const isElementExist = (selector: string) => {
   return document.body.contains(document.querySelector(selector));
-}
+};
 
 /**
  *
@@ -11,11 +11,11 @@ const isElementExist = (selector: string) => {
  * @constructor
  */
 export const IsElementReady = (selector: string, callback: any) => {
-  if(isElementExist(selector)){
+  if (isElementExist(selector)) {
     callback(document.querySelector(selector));
     return;
   }
-  const observer = new MutationObserver((m:any, o:any ) => {
+  const observer = new MutationObserver((m: any, o: any) => {
     if (isElementExist(selector)) {
       observer.disconnect(); // Disconnect old observer, so the obs don't stack.
       callback(document.querySelector(selector));
@@ -25,7 +25,7 @@ export const IsElementReady = (selector: string, callback: any) => {
     childList: true, // Have elements been added/removed directly in this element?
     subtree: true, // Have elements more than one level deep changed?
   });
-}
+};
 
 /**
  *
@@ -35,9 +35,8 @@ export const IsElementReady = (selector: string, callback: any) => {
  */
 export const IsElementPromiseReady = (selector: string) => {
   return new Promise((resolve, reject) => {
-    IsElementReady(selector, (elem:any) => {
+    IsElementReady(selector, (elem: any) => {
       resolve(elem);
-    })
-  })
-}
-
+    });
+  });
+};

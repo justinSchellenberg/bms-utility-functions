@@ -1,6 +1,6 @@
 {
   "name": "bms-utility-helper-functions",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "bms-utility-functions",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
