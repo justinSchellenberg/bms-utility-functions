@@ -1,76 +1,43 @@
-interface IListeners {
-  fn: any;
-  selector: string;
+'use strict';
+
+const isElementExist = (selector: string) => {
+  return document.body.contains(document.querySelector(selector));
 }
-
-let observer: any;
-
-const doc = window.document;
-const listeners: IListeners[] = [];
 
 /**
  *
- * @param {string} selector - document.querySelector element selector of an element to watch for
- * @return {Promise<any>} - Returns a promise if and when the element becomes seen and available in the DOM.
+ * @param {string} selector  The selector for the element to observe
+ * @param callback - The function to execute once the element is found.
+ * @constructor
  */
-export const IsElementReadyPromise = (selectorString: string) => {
-  return new Promise(resolve => {
-    // Store the selector and callback to be monitored
-    listeners.push({
-      fn: resolve,
-      selector: selectorString,
-    });
-    if (!observer) {
-      // Watch for changes in the document
-      observer = new MutationObserver(check);
-      observer.observe(doc.documentElement, {
-        childList: true,
-        subtree: true,
-      });
+export const IsElementReady = (selector: string, callback: any) => {
+  if(isElementExist(selector)){
+    callback(document.querySelector(selector));
+    return;
+  }
+  const observer = new MutationObserver((m:any, o:any ) => {
+    if (isElementExist(selector)) {
+      observer.disconnect(); // Disconnect old observer, so the obs don't stack.
+      callback(document.querySelector(selector));
     }
-    // Check if the element is currently in the DOM
-    check();
   });
-};
+  observer.observe(document.body, {
+    childList: true, // Have elements been added/removed directly in this element?
+    subtree: true, // Have elements more than one level deep changed?
+  });
+}
 
 /**
  *
- * @param {string} selector - document.querySelector element selector of an element to watch for
- * @param callback - Anonymous callback Function to execute if the element becomes seen and available in DOM.
+ * @param {string} selector  The selector for the element to observe
+ * @param callback - The Promise to resolve once element is found
+ * @constructor
  */
-export const IsElementReadyCallback = (selectorString: string, callback: any) => {
-  // Store the selector and callback to be monitored
-  listeners.push({
-    fn: callback,
-    selector: selectorString,
-  });
-  if (!observer) {
-    // Watch for changes in the document
-    observer = new MutationObserver(check);
-    observer.observe(doc.documentElement, {
-      childList: true,
-      subtree: true,
-    });
-  }
-  // Check if the element is currently in the DOM
-  check();
-};
-
-function check() {
-  // Check the DOM for elements matching a stored selector
-  for (let i = 0, len = listeners.length, listener, elements; i < len; i++) {
-    listener = listeners[i];
-    // Query for elements matching the specified selector
-    elements = doc.querySelectorAll(listener.selector);
-    for (let j = 0, jLen = elements.length, element: any; j < jLen; j++) {
-      element = elements[j];
-      // Make sure the callback isn't invoked with the
-      // same element more than once
-      if (!element.ready) {
-        element.ready = true;
-        // Resolve with the element
-        listener.fn.call(element, element);
-      }
-    }
-  }
+export const IsElementPromiseReady = (selector: string) => {
+  return new Promise((resolve, reject) => {
+    IsElementReady(selector, (elem:any) => {
+      resolve(elem);
+    })
+  })
 }
+
